@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>나만의 버킷리스트</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    .bg {
+      background-image: url("./Sparthon_BG.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      background-color: #141617;
+    }
+
+    .title {
+      margin-top: 50px;
+      color: #E8344E;
+    }
+
+    .msg {
+      color: white;
+      margin-bottom: 48px;
+    }
+
+    .bucket {
+      width: 160px;
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .img1 {
+      background-image: url("./Bucket01.png");
+      color: white;
+    }
+
+    .img2 {
+      background-image: url("./Bucket02.png");
+      color: #E8344E;
+    }
+
+    .img3 {
+      background-image: url("./Bucket03.png");
+      color: #E8344E;
+    }
+
+    .img4 {
+      background-image: url("./Bucket04.png");
+      color: white;
+    }
+
+    .img5 {
+      background-image: url("./Bucket05.png");
+      color: white;
+    }
+
+    .img6 {
+      background-image: url("./Bucket06.png");
+      color: #E8344E;
+    }
+
+    .img7 {
+      background-image: url("./Bucket03.png");
+      color: #E8344E;
+    }
+
+    .img8 {
+      background-image: url("./Bucket01.png");
+      color: white;
+    }
+
+    .img9 {
+      background-image: url("./Bucket02.png");
+      color: #E8344E;
+    }
+  </style>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="bg center">
+  <h1 class="title">SPARTHON Bucket List</h1>
+  <p class="msg">꿈은 꾸는 것이 아닌, 이루는 것이다</p>
+  <div class="flex-row wrap">
+    <div class="bucket img1 center">나만의 웹 만들기</div>
+    <div class="bucket img2 center">바디 프로필 찍기</div>
+    <div class="bucket img3 center">인테리어 꾸미기</div>
+    <div class="bucket img4 center">식물 키우기</div>
+    <div class="bucket img5 center">10킬로그램 감량!</div>
+    <div class="bucket img6 center">내가 만든 웹사이트 자랑하기</div>
+    <div class="bucket img7 center">적금 들기💰</div>
+    <div class="bucket img8 center">해외 여행가기</div>
+    <div class="bucket img9 center">PT 등록하기</div>
+  </div>
+  <script>
+    // 페이지 로드 시 이전 상태 복원
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buckets = document.querySelectorAll(".bucket");
+      buckets.forEach((bucket, index) => {
+        // 로컬 스토리지에서 상태 읽기
+        const isDone = localStorage.getItem("bucket" + index) === "done";
+        if (isDone) {
+          bucket.classList.add("done");
+        }
+      });
+    });
+
+    // 버킷 리스트 클릭 이벤트
+    const buckets = document.querySelectorAll(".bucket");
+    buckets.forEach((bucket, index) => {
+      bucket.addEventListener("click", function () {
+        // 클래스 토글
+        bucket.classList.toggle("done");
+        
+
+
+        // 로컬 스토리지에 상태 저장
+        if (bucket.classList.contains("done")) {
+          localStorage.setItem("bucket" + index, "done");
+        } else {
+          localStorage.setItem("bucket" + index, "");
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

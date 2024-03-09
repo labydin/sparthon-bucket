@@ -1,0 +1,66 @@
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(벚꽃.gif);
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bucket {
+  background-size: cover;
+  background-position: center;
+  margin: 8px;
+  position: relative;
+
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.done::after {
+  content: "";
+  width: 107px;
+  height: 70px;
+  background-image: url("./Done.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 25%;
+  animation: scale-out 0.5s ease-in-out 1;
+}
+
+.wrap {
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+.msg {
+  margin: -10px 0 30px;
+  color: white;
+}
